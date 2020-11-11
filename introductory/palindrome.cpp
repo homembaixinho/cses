@@ -25,7 +25,7 @@ int main() {
 
   string middle;
 
-  for ( map::iterator it = f.begin(); it != f.end(); it++) {
+  for (map::iterator it = f.begin(); it != f.end(); it++) {
     if (it->second & 1) {
       if (!middle.empty()) {
         cout << "NO SOLUTION" << endl;
