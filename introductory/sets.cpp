@@ -1,10 +1,17 @@
 // Two sets
 
 #include <iostream>
+#include <vector>
+
 using namespace std;
+typedef long long ll;
+typedef vector<int> vi;
+#define pb push_back
 #define endl "\n"
 
 int n, r;
+vi a, b;
+ll t;
 
 int main() {
   ios::sync_with_stdio(0);
@@ -14,30 +21,24 @@ int main() {
   r = n % 4;
 
   if (r == 0 || r == 3) {
-    cout << "YES" << endl; 
+    cout << "YES" << endl;
+    t = (ll) n*(n+1)/4;
 
-    if (r == 0) {
-      cout << n/2 << endl;
-      for (int i = 1; i < n/2; i += 2)
-        cout << i << " " << n-i+1 << " ";
-      cout << endl;
-
-      cout << n/2 << endl;
-      for (int i = 2; i <= n/2; i += 2)
-        cout << i << " " << n-i+1 << " ";
-      cout << endl;
-    } else {
-      cout << (n-1)/2 << endl << n << " ";
-      for (int i = 1; i <= (n-1)/4; i++)
-        cout << i << " " << n-i << " ";
-      cout << endl;
-
-      cout << (n + 1)/2 << endl;
-      for (int i = (n+3)/4; i <= (n-1)/2; i++)
-        cout << i << " " << n-i << " ";
-      cout << endl;
+    for (int i = n; i > 0; i--) {
+      if (i <= t) {
+        t -= i;
+        a.pb(i);
+      } else b.pb(i);
     }
-  } else {
-    cout << "NO" << endl;
-  }
+
+    cout << a.size() << endl;
+    for (int i : a)
+      cout << i << " ";
+    cout << endl;
+
+    cout << b.size() << endl;
+    for (int i : b)
+      cout << i << " ";
+    cout << endl;
+  } else cout << "NO" << endl;
 }
