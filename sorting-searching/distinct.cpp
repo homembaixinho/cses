@@ -18,9 +18,8 @@ int main() {
 
   sort(x, x+n);
   
-  for (int i = 1; i < n; i++) {
+  for (int i = 1; i < n; i++)
     if (x[i] != x[i-1]) ans++;
-  }
 
   cout << ans << endl;
 }
